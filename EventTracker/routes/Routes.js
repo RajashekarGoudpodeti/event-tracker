@@ -20,8 +20,19 @@ app.post('/customsettings', async (req, res) => {
       
   
       if (customSetting) {
-        // Update existing custom setting  
-        customSetting.event.data.fields = event.data.fields;
+        // Update existing custom setting
+        for (let eventField of event.data.fields) {
+          let field = customSetting.event.data.fields.find(obj => obj.name === eventField.name);
+          if (field) {
+            for (let key in eventField) {
+              if (key !== 'name') {
+                field[key] = eventField[key];
+              }
+            }
+          } else {
+            customSetting.event.data.fields.push(eventField);
+          }
+        }
         customSetting.event.modifiedDateTime = new Date();
         customSetting.event.data.operationType = event.data.operationType;
         await customSetting.save();
