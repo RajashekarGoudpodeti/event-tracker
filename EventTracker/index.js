@@ -2,12 +2,14 @@ const express = require ("express");
 const mongoose = require("mongoose");
 const Router = require("./routes/Routes");
 const path = require("path");
+const cors = require('cors');
 
 
 const PORT = process.env.PORT || 3001;
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.use(express.static(path.resolve(__dirname, '../clien/build')));
 
