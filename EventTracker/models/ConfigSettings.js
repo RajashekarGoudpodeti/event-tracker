@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const fieldSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  value: { type: String, required: true },
+  value: { type: String },
   lastModifiedDateTime: { type: Date, required: true },
   lastModifiedBy: { type: String, required: true }
 });
