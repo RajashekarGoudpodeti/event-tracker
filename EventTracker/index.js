@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.static(path.resolve(__dirname, '../clien/build')));
 
 
-mongoose.connect(`mongodb+srv://admin:password12345@abc.mongodb.net/?retryWrites=true&w=majority&appName=CPQ`,
+mongoose.connect(`mongodb+srv://admin:password12345@cpq.tywils3.mongodb.net/?retryWrites=true&w=majority&appName=CPQ`,
 {
     useNewUrlParser: true,
 })
