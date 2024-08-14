@@ -136,4 +136,9 @@ app.get('/versions/:orgId', async (req, res) => {
     }
   });
 
+app.post("/rule/timings",(request, response) => {
+  console.log(request.body);
+  response.send({});
+})
+
   module.exports = app;
